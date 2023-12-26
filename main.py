@@ -23,6 +23,7 @@ class Fruit:
 class Snake:
     def __init__(self) -> None:
         self.body = [Vector2(5,9), Vector2(4,9), Vector2(4,9)]
+        self.tail = pg.image.load('images/tail_up.png').convert_alpha()
         self.direction = Vector2(1,0)
 
         self.head_up = pg.image.load('images/head_up.png').convert_alpha()
