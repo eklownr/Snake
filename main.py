@@ -46,11 +46,6 @@ class Snake:
         self.crunch_sound = pg.mixer.Sound('sounds/crunch.wav')
 
 
-#    def draw_snake(self):
-        #for block in self.body:
-        #    snake_rect = pg.Rect(int(block.x * cell_size), int(block.y * cell_size), cell_size, cell_size)
-        #    pg.draw.rect(screen, (133,122,233), snake_rect)
-
     def draw_snake(self):
         self.update_head_graphics()
         self.update_tail_graphics()
@@ -94,8 +89,6 @@ class Snake:
         elif tail_relation == Vector2(-1,0): self.tail = self.tail_right
         elif tail_relation == Vector2(0,1): self.tail = self.tail_up
         elif tail_relation == Vector2(0,-1): self.tail = self.tail_down
-
-
 
     def add_block(self):
         body_copy = self.body[:]
@@ -153,13 +146,13 @@ def events(event):
          check_collision()
     # User input
     if event.type == pg.KEYDOWN:
-        if event.key == pg.K_UP:
+        if event.key == pg.K_UP and snake.direction[1] != 1:
             snake.direction = (0, -1)
-        if event.key == pg.K_DOWN:
+        if event.key == pg.K_DOWN and snake.direction[1] != -1:
             snake.direction = (0, 1)
-        if event.key == pg.K_RIGHT:
+        if event.key == pg.K_RIGHT and snake.direction[0] != -1:
             snake.direction = (1, 0)
-        if event.key == pg.K_LEFT:
+        if event.key == pg.K_LEFT and snake.direction[0] != 1:
             snake.direction = (-1, 0)
     
 
